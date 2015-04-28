@@ -12,7 +12,6 @@ class Vibration():
 		self.db = self.db_client[db]
 		# create logger
 		self.logger = logging.getLogger(__name__)
-		self.logger.info(self.db.collection_names(include_system_collections=False))
 
 	def get_cursor(self,truck_id, package_id, is_above_threshold = True):
 
