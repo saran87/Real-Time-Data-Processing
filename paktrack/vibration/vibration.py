@@ -17,7 +17,7 @@ class Vibration():
 
 		vib_collection = self.db["vibration"]
 
-		vib_cursor = vib_collection.find({"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold})
+		vib_cursor = vib_collection.find({"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold,"value.x":{"$exists":True},"value.y":{"$exists":True},"value.z":{"$exists":True}})
 
 		return vib_cursor
 
