@@ -33,6 +33,8 @@ tcelery.setup_nonblocking_producer()
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=False, help="run in debug mode")
 define("db_host", default="test.pak-track.com", help="paktrack database host")
+define("db_user", default="", help="paktrack database user name")
+define("db_pass", default="", help="paktrack database password")
 define("db_port", default=27017, help="paktrack database port", type=int)
 define("db", default="paktrackDB", help="paktrack database")
 
@@ -40,13 +42,31 @@ class VibartionReportHandler(RequestHandler):
     @asynchronous
     @gen.coroutine
     def get(self,truck_id, package_id):
-        gen.Task(tasks.process_data.apply_async,args=[options.db_host,options.db_port,options.db,truck_id,package_id])
+        gen.Task(tasks.consolidated_report.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,truck_id,package_id])
+        self.write({"data":"queued"})
+        self.finish()
+    @asynchronous
+    @gen.coroutine
+    def post(self,id):
+        gen.Task(tasks.process_vibration.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,package_id])
         self.write({"data":"queued"})
         self.finish()
 
+class ShockDataHandler(RequestHandler):
+    @asynchronous
+    @gen.coroutine
+    def post(self,id):
+        gen.Task(tasks.process_shock.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,package_id])
+        self.write({"data":"queued"})
+        self.finish()
+def get_routes():
+    return [(r"/tasks/vibration/report/(.*)/(.*)", VibartionReportHandler),
+            (r"/tasks/vibration/(.*)", VibartionReportHandler),
+            (r"/tasks/shock/(.*)", ShockDataHandler)]
 def main():
     parse_command_line()
-    application = Application([(r"/tasks/vibration/report/(.*)/(.*)", VibartionReportHandler)])
+    routes = get_routes()
+    application = Application(get_routes())
     application.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 

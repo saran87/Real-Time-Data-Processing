@@ -4,12 +4,120 @@
 		"selected_items":
 		[
 			[
-				"data",
-				"database"
+				"sc",
+				"shock_data_processor"
+			],
+			[
+				"vi",
+				"vib"
+			],
+			[
+				"v",
+				"vibration_data_processor"
+			],
+			[
+				"sh",
+				"shock_cursor"
 			],
 			[
 				"db",
+				"db_name"
+			],
+			[
+				"d",
 				"db_port"
+			],
+			[
+				"ma",
+				"max_axis_values"
+			],
+			[
+				"max",
+				"max_index"
+			],
+			[
+				"max_axis",
+				"max_axis_values"
+			],
+			[
+				"axis",
+				"axis_index"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"a",
+				"axis"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"ch",
+				"chunk_index"
+			],
+			[
+				"c",
+				"CHUNK_SIZE"
+			],
+			[
+				"chu",
+				"chunk_index"
+			],
+			[
+				"chun",
+				"chunk_index"
+			],
+			[
+				"mx",
+				"max_index"
+			],
+			[
+				"pre",
+				"pre_process_data"
+			],
+			[
+				"s",
+				"signal"
+			],
+			[
+				"sho",
+				"SHOCK_COLLECTION"
+			],
+			[
+				"SH",
+				"Shock"
+			],
+			[
+				"np",
+				"np_signal"
+			],
+			[
+				"data",
+				"data_processor"
+			],
+			[
+				"get",
+				"get_grms"
+			],
+			[
+				"ge",
+				"get_axis_data"
+			],
+			[
+				"vo",
+				"vibration"
+			],
+			[
+				"viba",
+				"Vibration"
+			],
+			[
+				"tr",
+				"True"
 			],
 			[
 				"pa",
@@ -20,10 +128,6 @@
 				"paktrack"
 			],
 			[
-				"v",
-				"Vibration"
-			],
-			[
 				"w",
 				"write_result"
 			],
@@ -32,24 +136,12 @@
 				"psds"
 			],
 			[
-				"vi",
-				"vibration"
-			],
-			[
 				"Vi",
 				"Vibration"
 			],
 			[
 				"vib_",
 				"vib_cursor"
-			],
-			[
-				"tr",
-				"truck_id"
-			],
-			[
-				"c",
-				"client"
 			],
 			[
 				"rev",
@@ -128,10 +220,6 @@
 				"email_infos"
 			],
 			[
-				"pr",
-				"programs"
-			],
-			[
 				"Progra",
 				"ProgramDetailsController"
 			],
@@ -142,10 +230,6 @@
 			[
 				"off",
 				"Offers"
-			],
-			[
-				"sc",
-				"scope"
 			],
 			[
 				"ise",
@@ -237,10 +321,6 @@
 			],
 			[
 				"st",
-				"start_date"
-			],
-			[
-				"s",
 				"start_date"
 			],
 			[
@@ -364,24 +444,8 @@
 				"sqrSum"
 			],
 			[
-				"axis",
-				"axisValues"
-			],
-			[
-				"ma",
-				"maxGArray"
-			],
-			[
-				"max",
-				"maxAxis"
-			],
-			[
 				"axi",
 				"axis"
-			],
-			[
-				"a",
-				"axismax"
 			],
 			[
 				"shoc",
@@ -402,10 +466,6 @@
 			[
 				"Pac",
 				"PackageDataAccess"
-			],
-			[
-				"mx",
-				"maxYValue"
 			],
 			[
 				"fo",
@@ -454,71 +514,51 @@
 			[
 				"at",
 				"attr"
-			],
-			[
-				"cl",
-				"click"
-			],
-			[
-				"add",
-				"addClass"
-			],
-			[
-				"ob",
-				"objArr"
-			],
-			[
-				"sec",
-				"seconds"
-			],
-			[
-				"in",
-				"index"
-			],
-			[
-				"value",
-				"valueArr"
-			],
-			[
-				"se",
-				"sectionName"
-			],
-			[
-				"las",
-				"lastTime"
-			],
-			[
-				"sho",
-				"shockObject"
-			],
-			[
-				"sh",
-				"shockObject"
-			],
-			[
-				"shc",
-				"shock"
-			],
-			[
-				"sq",
-				"sqrValue"
-			],
-			[
-				"vin",
-				"vibration"
-			],
-			[
-				"hu",
-				"humidty"
-			],
-			[
-				"hum",
-				"humid"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "paktrack/tasks.py",
+			"settings":
+			{
+				"buffer_size": 1223,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "start.py",
+			"settings":
+			{
+				"buffer_size": 2823,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "paktrack/common/common.py",
+			"settings":
+			{
+				"buffer_size": 1863,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "paktrack/common/base_model.py",
+			"settings":
+			{
+				"buffer_size": 2094,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "paktrack/celeryconfig.py",
+			"settings":
+			{
+				"buffer_size": 1244,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -616,23 +656,47 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Kumar/Documents/Projects/celery_tornado"
+		"/Users/Kumar/Documents/Projects/celery_tornado",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration",
+		"/Users/Kumar/Documents/Projects/celery_tornado/test",
+		"/Users/Kumar/Documents/Projects/celery_tornado/utility"
 	],
 	"file_history":
 	[
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/consolidated_report.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration_data_processor.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock_data_processor.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/test/vibration_test.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/base_model.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/utility/update.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/start.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/test/shock_test.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/common.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/__init__.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/tasks.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/__init__.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/test/__init__.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/__init__.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/probability_report.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/BaseModel",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/test_task.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/task_server.sublime-project",
 		"/Users/Kumar/Desktop/RealTime Tracking/task_server",
 		"/Users/Kumar/Desktop/log.htm",
 		"/Users/Kumar/Desktop/email.html",
 		"/Users/Kumar/Desktop/export.js",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/celeryconfig.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/tornado.conf",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/tasks.py",
 		"/Users/Kumar/Downloads/jsPDF-0.9.0rc2/dist/jspdf.min.js",
 		"/Users/Kumar/Downloads/jsPDF-0.9.0rc2/index.html",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/celery.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery.conf",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/start.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery1.pid",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery2.pid",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery1.log",
@@ -729,29 +793,11 @@
 		"/Applications/MAMP/htdocs/causbuzz/client/generated/js/app.js",
 		"/Applications/MAMP/htdocs/causbuzz/server/vendor/composer/autoload_psr4.php",
 		"/Applications/MAMP/htdocs/causbuzz/client/app/templates/store.html",
-		"/Applications/MAMP/htdocs/causbuzz/server/app/controllers/AuthController.php",
-		"/Applications/MAMP/htdocs/causbuzz/server/app/routes.php",
-		"/Applications/MAMP/htdocs/causbuzz/client/app/templates/login.html",
-		"/Applications/MAMP/htdocs/causbuzz/server/vendor/phpseclib/phpseclib/AUTHORS",
-		"/Applications/MAMP/htdocs/causbuzz/server/app/models/Authentication.php",
-		"/Applications/MAMP/htdocs/causbuzz/server/app/controllers/AuthorizedController.php",
-		"/Applications/MAMP/htdocs/causbuzz/client/node_modules/grunt/node_modules/rimraf/AUTHORS",
-		"/Applications/MAMP/htdocs/causbuzz/client/spec-e2e/login_spec.coffee",
-		"/Applications/MAMP/htdocs/causbuzz/client/node_modules/protractor/docs/library-only.md",
-		"/Applications/MAMP/htdocs/causbuzz/client/node_modules/.bin/lineman",
-		"/Applications/MAMP/htdocs/causbuzz/server/vendor/aws/aws-sdk-php/tests/mock/glacier/describe_vault_error",
-		"/Applications/MAMP/htdocs/causbuzz/server/app/controllers/DashBoardController.php",
-		"/Applications/MAMP/htdocs/causbuzz/client/app/js/controllers/store.js",
-		"/Applications/MAMP/htdocs/causbuzz/server/vendor/aws/aws-sdk-php/tests/mock/route53/server_time_2",
-		"/Applications/MAMP/htdocs/causbuzz/server/public/api/.htaccess",
-		"/Applications/MAMP/htdocs/causbuzz/server/bootstrap/start.php",
-		"/Applications/MAMP/htdocs/causbuzz/client/app/templates/program-details.html",
-		"/Applications/MAMP/htdocs/causbuzz/client/node_modules/grunt/node_modules/glob/test/pause-resume.js",
-		"/Applications/MAMP/htdocs/causbuzz/server/phpunit.xml"
+		"/Applications/MAMP/htdocs/causbuzz/server/app/controllers/AuthController.php"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -797,6 +843,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" \"",
+			"== ",
+			"get_cursor",
+			"get_normalized_rms",
+			"__overall_grms",
+			"__get_drop_height",
+			"chunk_index",
+			"__get_max_with_index",
+			"get_grms",
+			"get_cursor",
 			"FREQUENCY",
 			"celery_http_gateway.urls",
 			"configPacket\\[.*]\\s+=\\s+(.*);",
@@ -914,17 +970,7 @@
 			"Dashboarcon",
 			"ProgramsController",
 			"ProgramController",
-			"LinkHandlerController",
-			"save",
-			"confirm",
-			"DashboardController",
-			"dashb",
-			"issigned",
-			"getIndex",
-			"organization",
-			" \">",
-			"isActive",
-			"public"
+			"LinkHandlerController"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -983,8 +1029,155 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "paktrack/tasks.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								829,
+								836
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "start.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1593
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 560.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "paktrack/common/common.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								841,
+								847
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 115.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "paktrack/common/base_model.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2094,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								524,
+								524
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 24.0,
+						"translation.y": 322.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "paktrack/celeryconfig.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								933
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1041,8 +1234,48 @@
 		"selected_items":
 		[
 			[
+				"vi",
+				"test/vibration_test.py"
+			],
+			[
+				"shoc",
+				"test/shock_test.py"
+			],
+			[
+				"shp",
+				"paktrack/shock/shock_data_processor.py"
+			],
+			[
+				"sho",
+				"paktrack/shock/shock_data_processor.py"
+			],
+			[
 				"vib",
-				"celery_mongo/paktrack/vibration/vibration.py"
+				"paktrack/vibration/vibration_data_processor.py"
+			],
+			[
+				"",
+				"paktrack/shock/shock_data_processor.py"
+			],
+			[
+				"sh",
+				"paktrack/shock/shock_data_processor.py"
+			],
+			[
+				"com",
+				"paktrack/common/common.py"
+			],
+			[
+				"s",
+				"paktrack/shock/shock_data_processor.py"
+			],
+			[
+				"comm",
+				"paktrack/common/common.py"
+			],
+			[
+				"vin",
+				"paktrack/vibration/vibration_data_processor.py"
 			],
 			[
 				"userc",
@@ -1317,10 +1550,6 @@
 				"causbuzz/server/app/models/Totalpoints.php"
 			],
 			[
-				"",
-				"causbuzz/server/app/controllers/PointsController.php"
-			],
-			[
 				"r",
 				"causbuzz/server/app/routes.php"
 			],
@@ -1490,7 +1719,7 @@
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 300.0,
-	"status_bar_visible": true,
+	"status_bar_visible": false,
 	"template_settings":
 	{
 	}
