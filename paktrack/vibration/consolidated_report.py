@@ -2,7 +2,7 @@ import logging
 import numpy as np
 from paktrack.common.common import (get_psd,get_grms)
 
-class ConsolidatedReport(object):
+class ConsolidatedReport():
 	"""docstring for ClassName"""
 	def __init__(self, vibration):
 		self.vibration = vibration

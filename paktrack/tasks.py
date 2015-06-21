@@ -14,7 +14,7 @@ logger = get_task_logger(__name__)
 
 
 @app.task
-def consolidated_report(db_host, db_port, db, db_user, db_pass, truck_id, package_id):
+def vib_consolidated_report(db_host, db_port, db, db_user, db_pass, truck_id, package_id):
     vib = vibration.Vibration(db_host, db_port, db, db_user, db_pass)
     report = consolidated_report.ConsolidatedReport(vib)
     return report.process_data(truck_id,package_id)

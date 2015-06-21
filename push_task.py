@@ -1,2 +1,2 @@
-from paktrack.tasks import hello_world
-hello_world.apply_async()
+import paktrack.tasks as tasks
+tasks.consolidated_report.apply_sync()
