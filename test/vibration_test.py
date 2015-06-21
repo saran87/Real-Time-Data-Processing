@@ -24,9 +24,9 @@ def test_vibration_preprocessing():
 
 
 if __name__ == "__main__":
-    test_vibration_object()
+    #test_vibration_object()
 
-    test_consolidated_report()
+    #test_consolidated_report()
     
     test_vibration_preprocessing()
 

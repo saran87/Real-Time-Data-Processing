@@ -29,7 +29,6 @@ class BaseModel(object):
 			cursor = self.get_cursor(query)
 		
 		for line in cursor:
-			print line
 			events.append(get_axis_data(line))
 		
 		self.logger.info("Done loading events from mongodb cursor")
@@ -48,13 +47,26 @@ class BaseModel(object):
 			
 		return event
 
-	def get_cursor(self,query,fields={}):
+	def get_cursor(self,query,fields={"dummy":0}):
 		cursor = self.collection.find(query,fields)
 		return cursor
 
 	def update(self, event):
-		self.logger.info("Started udpating data base with shock event of id: %s", event['_id'])
+		self.logger.info("Started udpating database for %s event of id: %s",self.collection.name, event['_id'])
 		event['updated_at'] = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
 		result = self.collection.save(event)
 
-		self.logger.info("Done udpating data base with shock event of id: %s", event['_id'])
+		self.logger.info("Done udpating database for %s event of id: %s",self.collection.name, event['_id'])
+
+	def delete(self,event):
+		self.collection.remove(event)
+		self.logger.info("Done deleting %s of id: %s",self.collection.name, event['_id'])
+
+
+
+
+
+
+
+
+

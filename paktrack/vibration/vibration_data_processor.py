@@ -17,10 +17,13 @@ class VibrationDataProcessor(object):
 		
 		if event:
 			event = self.__process_max_value(event)
-			event = self.__process_psd(event)
-			event['g_rms'] = get_normalized_rms(event)
-			event['is_processed'] = True
-			result = self.vibration.update(event)
+			if self.__is_proper_event(event):
+				result = self.vibration.delete(event)
+			else:
+				event = self.__process_psd(event)
+				event['g_rms'] = get_normalized_rms(event)
+				event['is_processed'] = True
+				result = self.vibration.update(event)
 
 		return result
 
@@ -31,6 +34,22 @@ class VibrationDataProcessor(object):
 		event['max_vector'] = get_max_with_index(event['vector'])
 
 		return event
+
+	def __is_proper_event(self,event):
+		count = 0
+		if abs(event['max_x']['value']) >= 4.0:
+			count = count + 1
+
+		if abs(event['max_y']['value']) >= 4.0:
+			count = count + 1
+
+		if abs(event['max_z']['value']) >= 4.0:
+			count = count + 1
+
+		if count > 1:
+			return True
+
+		return False
 
 	def __process_psd(self, event):
 		

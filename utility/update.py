@@ -51,7 +51,7 @@ def process_shock(args):
 		 print result
 		 count = count + 1
 
-	print "Processed %d vibration events", count
+	print "Processed %d shock events", count
 
 if __name__ == "__main__":
 	args = parse_arguments()

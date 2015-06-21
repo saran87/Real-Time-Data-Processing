@@ -10,6 +10,10 @@ def get_grms(data):
 	return simps(data[2:(len(data)/2)-1], dx=10)
 
 def get_axis_data(event):
+	''' dont change the below code without proper impact analysis 
+		this code handles the old data format and new data format of 
+		vibration and shock data
+	'''
 	if event:
 		if 'value' in event: #To handle old data format
 			event['x'] =  string_to_list(event['value']['x']);
