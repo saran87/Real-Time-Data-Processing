@@ -42,13 +42,13 @@ class VibartionReportHandler(RequestHandler):
     @asynchronous
     @gen.coroutine
     def get(self,truck_id, package_id):
-        gen.Task(tasks.vib_consolidated_report.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,truck_id,package_id])
+        gen.Task(tasks.vib_consolidated_report.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,truck_id,package_id],queue="vibration_report")
         self.write({"data":"queued"})
         self.finish()
     @asynchronous
     @gen.coroutine
     def post(self,id):
-        gen.Task(tasks.process_vibration.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,id])
+        gen.Task(tasks.process_vibration.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,id],queue="vibration")
         self.write({"data":"queued"})
         self.finish()
 
@@ -56,7 +56,7 @@ class ShockDataHandler(RequestHandler):
     @asynchronous
     @gen.coroutine
     def post(self,id):
-        gen.Task(tasks.process_shock.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,id])
+        gen.Task(tasks.process_shock.apply_async,args=[options.db_host,options.db_port,options.db,options.db_user,options.db_pass,id],queue="shock")
         self.write({"data":"queued"})
         self.finish()
 def get_routes():
