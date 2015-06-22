@@ -6,8 +6,9 @@ from paktrack.shock import shock, shock_data_processor
 def test_shock_preprocessing():
 	shock_model = shock.Shock("test.pak-track.com",27017,"paktrackDB")
 	data_processor = shock_data_processor.ShockDataProcessor(shock_model)
-	result = data_processor.pre_process_data("53a882d513a850347fcc1a55")
-	print  "Passed preprocessing data" if result is "53a8838f13a850347fcc1a57"  else "Failed preprocessing shock data"
+	result = data_processor.pre_process_data("5588786a8ae5a45f6f2e8091")
+	print result
+	print  "Passed preprocessing data" if result   else "Failed preprocessing shock data"
 
 
 if __name__ == "__main__":

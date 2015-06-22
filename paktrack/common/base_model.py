@@ -44,7 +44,8 @@ class BaseModel(object):
 		else:
 			query = {"_id":ObjectId(id),"x":{"$exists":True},"y":{"$exists":True},"z":{"$exists":True}}
 			event = self.collection.find_one(query)
-			
+			event = get_axis_data(event)
+		
 		return event
 
 	def get_cursor(self,query,fields={"dummy":0}):

@@ -14,6 +14,7 @@ def get_axis_data(event):
 		this code handles the old data format and new data format of 
 		vibration and shock data
 	'''
+
 	if event:
 		if 'value' in event: #To handle old data format
 			event['x'] =  string_to_list(event['value']['x']);
@@ -25,11 +26,11 @@ def get_axis_data(event):
 			if not isinstance(event['x'], list):
 				event['x'] =  string_to_list(event['x']);
 		if 'y' in event:
-			if not isinstance(event['x'], list):
-				event['x'] =  string_to_list(event['x']);
+			if not isinstance(event['y'], list):
+				event['y'] =  string_to_list(event['y']);
 		if 'z' in event:
-			if not isinstance(event['x'], list):
-				event['x'] =  string_to_list(event['z']);
+			if not isinstance(event['z'], list):
+				event['z'] =  string_to_list(event['z']);
 
 		event['vector'] = get_vector_data(event['x'],event['y'],event['z'])
 		

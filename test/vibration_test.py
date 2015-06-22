@@ -18,17 +18,17 @@ def test_consolidated_report():
 
 def test_vibration_preprocessing():
 	data_processor = vibration_data_processor.VibrationDataProcessor(vib)
-	result = data_processor.pre_process_data("53a8841d13a850347fcc1a5a")
+	result = data_processor.pre_process_data("558876438ae5a45f6f2e8076")
 	#print result
-	print  "Passed preprocessing data" if result is "5553e84c43e88deae72988d6"  else "Failed preprocessing vibration data"
+	print  "Passed preprocessing data" if result  else "Failed preprocessing vibration data"
 
 
 if __name__ == "__main__":
     #test_vibration_object()
 
-    test_consolidated_report()
+    #test_consolidated_report()
     
-    #test_vibration_preprocessing()
+    test_vibration_preprocessing()
 
 
 
