@@ -6,7 +6,7 @@ from numpy import mean, sqrt, square
 import operator
 from paktrack.common.common import (get_psd,get_grms,get_max_with_index,get_vector_data,get_normalized_rms)
 
-PEEK_DETECTION_THRESHOLD = 7
+PEEK_DETECTION_THRESHOLD = 3
 FACE_DETECTION_THRESHOLD = 1.5
 NUMBER_CHUNK_SIZE = 16
 AXIS_MAPPING = {0:"x",1:"y",2:"z"}
@@ -46,7 +46,7 @@ class ShockDataProcessor(object):
 	def __get_peak_chunk_index(self, signal):
 		
 		chunks = np.array_split(signal, NUMBER_CHUNK_SIZE)
-		max_value = -1.0
+		max_value = -0.0
 	 	chunk_index = -1
 		chunk_count = 0
 
