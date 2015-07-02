@@ -24,7 +24,7 @@ class BaseModel(object):
 		query = {"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold,"x":{"$exists":True},"y":{"$exists":True},"z":{"$exists":True}}
 		cursor = self.get_cursor(query)
 		
-		if cursor is None:
+		if cursor:
 			query = {"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold,"value.x":{"$exists":True},"value.y":{"$exists":True},"value.z":{"$exists":True}}
 			cursor = self.get_cursor(query)
 		
