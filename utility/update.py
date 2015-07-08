@@ -25,7 +25,7 @@ def main(args):
 
 def process_vibration(args):
 	vib = vibration.Vibration(args.db_host,args.db_port, args.db_name )
-	query = {"is_processed":False}
+	query = {"is_processed":{"$exists":False}}
 	fields = {"_id":1}
 	cursor = vib.get_cursor(query,fields)
 	data_processor = vibration_data_processor.VibrationDataProcessor(vib)
