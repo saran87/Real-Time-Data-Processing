@@ -23,6 +23,9 @@ class BaseModel(object):
 		events = []
 		query = {"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold,"x":{"$exists":True},"y":{"$exists":True},"z":{"$exists":True}}
 		cursor = self.get_cursor(query)
+
+		for line in cursor:
+			events.append(get_axis_data(line))
 		
 		if cursor:
 			query = {"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold,"value.x":{"$exists":True},"value.y":{"$exists":True},"value.z":{"$exists":True}}
@@ -45,7 +48,7 @@ class BaseModel(object):
 			query = {"_id":ObjectId(id),"x":{"$exists":True},"y":{"$exists":True},"z":{"$exists":True}}
 			event = self.collection.find_one(query)
 			event = get_axis_data(event)
-		
+
 		return event
 
 	def get_cursor(self,query,fields={"dummy":0}):
@@ -60,7 +63,7 @@ class BaseModel(object):
 		self.logger.info("Done udpating database for %s event of id: %s",self.collection.name, event['_id'])
 
 	def delete(self,event):
-		self.collection.remove(event)
+		self.collection.remove({"_id":event['_id']})
 		self.logger.info("Done deleting %s of id: %s",self.collection.name, event['_id'])
 
 

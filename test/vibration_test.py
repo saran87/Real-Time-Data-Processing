@@ -3,7 +3,7 @@ from os import path
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from paktrack.vibration import vibration,consolidated_report,vibration_data_processor
 
-vib = vibration.Vibration("test.pak-track.com",27017,"paktrackDB")
+vib = vibration.Vibration("database.pak-track.com",27017,"realTimeDataDb")
 
 def test_vibration_object():	
 	events = vib.get_events("INTERNATIONAL","WUXI")
@@ -13,12 +13,12 @@ def test_vibration_object():
 
 def test_consolidated_report():
 	report = consolidated_report.ConsolidatedReport(vib)
-	result = report.process_data("TRIP 1","1")
+	result = report.process_data("OUTSIDE","07082015 1515")
 	print  "Passed consolidated_report" if result is "success"  else "Failed consolidated_report"
 
 def test_vibration_preprocessing():
 	data_processor = vibration_data_processor.VibrationDataProcessor(vib)
-	result = data_processor.pre_process_data("558876438ae5a45f6f2e8076")
+	result = data_processor.pre_process_data("559da4b843e88deae7299790")
 	#print result
 	print  "Passed preprocessing data" if result  else "Failed preprocessing vibration data"
 

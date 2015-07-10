@@ -31,6 +31,7 @@ class ConsolidatedReport():
 		self.logger.info("Started Processing data for truck_id: %s & package_id: %s",truck_id,package_id)
 		
 		events = self.vibration.get_events(truck_id,package_id)
+		
 		self.logger.info("Loaded %d events",len(events))
 		
 		if(len(events) > 0):

@@ -19,6 +19,7 @@ class VibrationDataProcessor(object):
 			event = self.__process_max_value(event)
 			if self.__is_proper_event(event):
 				result = self.vibration.delete(event)
+				print result
 			else:
 				event = self.__process_psd(event)
 				event['g_rms'] = get_normalized_rms(event)
