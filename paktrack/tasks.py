@@ -2,28 +2,38 @@ from __future__ import absolute_import
 from celery.utils.log import get_task_logger
 from paktrack.celery import app
 
-from paktrack.vibration import (vibration,consolidated_report,vibration_data_processor)
-from paktrack.shock import (shock,shock_data_processor)
-import logging.config
-import logging
+from paktrack.vibration import (
+    vibration, consolidated_report, vibration_data_processor)
+from paktrack.shock import (shock, shock_data_processor)
 
 LOG_CONFIG = 'paktrack.logging.conf'
 
-#logging.config.fileConfig(LOG_CONFIG)
+# logging.config.fileConfig(LOG_CONFIG)
 logger = get_task_logger(__name__)
 
 
 @app.task
-def vib_consolidated_report(db_host, db_port, db, db_user, db_pass, truck_id, package_id):
+def vib_consolidated_report(
+        db_host, db_port, db, db_user, db_pass, truck_id, package_id):
     vib = vibration.Vibration(db_host, db_port, db, db_user, db_pass)
     report = consolidated_report.ConsolidatedReport(vib)
-    return report.process_data(truck_id,package_id)
- 
+    return report.process_data(truck_id, package_id)
+
+
 @app.task
 def process_vibration(db_host, db_port, db, db_user, db_pass, id):
     vib = vibration.Vibration(db_host, db_port, db, db_user, db_pass)
     data_processor = vibration_data_processor.VibrationDataProcessor(vib)
     return data_processor.pre_process_data(id)
+
+
+@app.task
+def vib_custom_report(
+        db_host, db_port, db, db_user, db_pass, truck_id, package_id, ids):
+    vib = vibration.Vibration(db_host, db_port, db, db_user, db_pass)
+    report = consolidated_report.ConsolidatedReport(vib)
+    return report.gen_custom_report(truck_id, package_id, ids)
+
 
 @app.task
 def process_shock(db_host, db_port, db, db_user, db_pass, id):

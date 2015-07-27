@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"max",
+				"max_x"
+			],
+			[
 				"sc",
 				"shock_data_processor"
 			],
@@ -30,10 +34,6 @@
 			[
 				"ma",
 				"max_axis_values"
-			],
-			[
-				"max",
-				"max_index"
 			],
 			[
 				"max_axis",
@@ -520,26 +520,34 @@
 	"buffers":
 	[
 		{
-			"file": "paktrack/tasks.py",
+			"file": "utility/update.py",
 			"settings":
 			{
-				"buffer_size": 1223,
+				"buffer_size": 2167,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "start.py",
+			"file": "test/vibration_test.py",
 			"settings":
 			{
-				"buffer_size": 2823,
+				"buffer_size": 1147,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "paktrack/common/common.py",
+			"file": "paktrack/vibration/consolidated_report.py",
 			"settings":
 			{
-				"buffer_size": 1863,
+				"buffer_size": 2062,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "paktrack/vibration/vibration_data_processor.py",
+			"settings":
+			{
+				"buffer_size": 1780,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,15 +555,7 @@
 			"file": "paktrack/common/base_model.py",
 			"settings":
 			{
-				"buffer_size": 2094,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "paktrack/celeryconfig.py",
-			"settings":
-			{
-				"buffer_size": 1244,
+				"buffer_size": 2369,
 				"line_ending": "Unix"
 			}
 		}
@@ -666,19 +666,25 @@
 	],
 	"file_history":
 	[
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/consolidated_report.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration_data_processor.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock_data_processor.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/test/vibration_test.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/common.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/base_model.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/utility/update.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/start.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock_data_processor.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/test/shock_test.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/common.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/__init__.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/start.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/test/vibration_test.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/; ================================================",
+		"/Users/Kumar/Documents/Projects/celery_tornado/push_task.py",
+		"/Users/Kumar/Google Drive/Research_Real Time Package Tracking and Monitoring/Servers/test_server.pem",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/tasks.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/celeryconfig.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/consolidated_report.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/celery.conf",
+		"/Users/Kumar/Documents/Projects/celery_tornado/untitled.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration_data_processor.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/test/__init__.py",
@@ -691,12 +697,10 @@
 		"/Users/Kumar/Desktop/log.htm",
 		"/Users/Kumar/Desktop/email.html",
 		"/Users/Kumar/Desktop/export.js",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/celeryconfig.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/tornado.conf",
 		"/Users/Kumar/Downloads/jsPDF-0.9.0rc2/dist/jspdf.min.js",
 		"/Users/Kumar/Downloads/jsPDF-0.9.0rc2/index.html",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/celery.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/celery.conf",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery1.pid",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery2.pid",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery1.log",
@@ -789,11 +793,7 @@
 		"/Users/Kumar/Desktop/LG - 1800-793-8896",
 		"/Applications/MAMP/htdocs/causbuzz/server/app/models/Points.php",
 		"/Applications/MAMP/htdocs/causbuzz/server/vendor/aws/aws-sdk-php/docs/_snippets/performing-operations.txt",
-		"/Applications/MAMP/htdocs/causbuzz/client/generated/css/app.css",
-		"/Applications/MAMP/htdocs/causbuzz/client/generated/js/app.js",
-		"/Applications/MAMP/htdocs/causbuzz/server/vendor/composer/autoload_psr4.php",
-		"/Applications/MAMP/htdocs/causbuzz/client/app/templates/store.html",
-		"/Applications/MAMP/htdocs/causbuzz/server/app/controllers/AuthController.php"
+		"/Applications/MAMP/htdocs/causbuzz/client/generated/css/app.css"
 	],
 	"find":
 	{
@@ -804,6 +804,7 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"<open folders>",
 			"/Applications/MAMP/htdocs/causbuzz/server",
 			"",
 			"/Applications/MAMP/htdocs/causbuzz/client/app/",
@@ -843,6 +844,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ConsolidatedReport",
+			"get_cursor",
 			" \"",
 			"== ",
 			"get_cursor",
@@ -968,9 +971,7 @@
 			"Dash",
 			"Dashboard",
 			"Dashboarcon",
-			"ProgramsController",
-			"ProgramController",
-			"LinkHandlerController"
+			"ProgramsController"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1029,46 +1030,16 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "paktrack/tasks.py",
+					"file": "utility/update.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1223,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								829,
-								836
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "start.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2823,
+						"buffer_size": 2167,
 						"regions":
 						{
 						},
@@ -1076,7 +1047,7 @@
 						[
 							[
 								0,
-								1593
+								0
 							]
 						],
 						"settings":
@@ -1086,85 +1057,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 560.0,
+						"translation.y": 292.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "paktrack/common/common.py",
+					"buffer": 1,
+					"file": "test/vibration_test.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1863,
+						"buffer_size": 1147,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								841,
-								847
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 115.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "paktrack/common/base_model.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2094,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								524,
-								524
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 24.0,
-						"translation.y": 322.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "paktrack/celeryconfig.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1244,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								913,
-								933
+								880,
+								904
 							]
 						],
 						"settings":
@@ -1176,6 +1089,94 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "paktrack/vibration/consolidated_report.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2062,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "paktrack/vibration/vibration_data_processor.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								799,
+								799
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "paktrack/common/base_model.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2274,
+								2274
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1719,7 +1720,7 @@
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 300.0,
-	"status_bar_visible": false,
+	"status_bar_visible": true,
 	"template_settings":
 	{
 	}
