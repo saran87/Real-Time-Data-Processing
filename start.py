@@ -87,7 +87,7 @@ def get_routes():
     return [(r"/tasks/vibration/report/(.*)/(.*)", VibartionReportHandler),
             (r"/tasks/vibration/(.*)", VibartionReportHandler),
             (r"/tasks/shock/(.*)", ShockDataHandler),
-            (r"/tasks/vibration/custom/report/(.*)/(.*)", CustomReportHandler)]
+            (r"/tasks/custom/vibration/report/(.*)/(.*)", CustomReportHandler)]
 
 
 def main():
