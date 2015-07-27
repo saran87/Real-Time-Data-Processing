@@ -18,7 +18,6 @@ import tornado.auth
 import tornado.escape
 import tornado.ioloop
 import tornado.web
-
 from tornado import gen
 from tornado.options import define, options, parse_command_line
 from tornado.web import asynchronous, RequestHandler, Application
@@ -74,7 +73,8 @@ class CustomReportHandler(RequestHandler):
     @asynchronous
     @gen.coroutine
     def post(self, truck_id, package_id):
-        ids = self.get_argument('ids')
+        data_json = tornado.escape.json_decode(self.request.body)
+        ids = data_json['ids']
         gen.Task(
             tasks.vib_custom_report.apply_async,
             args=[options.db_host, options.db_port, options.db,

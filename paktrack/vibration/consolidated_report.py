@@ -73,7 +73,7 @@ class ConsolidatedReport():
 
         event_ids = []
         for id in ids:
-            event_ids.append(ObjectId(id))
+            event_ids.append(ObjectId(str(id)))
 
         query = {"_id": {"$in": event_ids}}
 
