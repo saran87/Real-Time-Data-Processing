@@ -520,18 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "utility/update.py",
+			"file": "start.py",
 			"settings":
 			{
-				"buffer_size": 2167,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/vibration_test.py",
-			"settings":
-			{
-				"buffer_size": 1147,
+				"buffer_size": 3500,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,23 +531,15 @@
 			"file": "paktrack/vibration/consolidated_report.py",
 			"settings":
 			{
-				"buffer_size": 2062,
+				"buffer_size": 2873,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "paktrack/vibration/vibration_data_processor.py",
+			"file": "paktrack/celeryconfig.py",
 			"settings":
 			{
-				"buffer_size": 1780,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "paktrack/common/base_model.py",
-			"settings":
-			{
-				"buffer_size": 2369,
+				"buffer_size": 1329,
 				"line_ending": "Unix"
 			}
 		}
@@ -666,27 +650,28 @@
 	],
 	"file_history":
 	[
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/consolidated_report.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/common.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/start.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/tasks.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/logging.conf",
+		"/Users/Kumar/Documents/Projects/celery_tornado/test/vibration_test.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration_data_processor.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/__init__.py",
+		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock_data_processor.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/base_model.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/utility/update.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock_data_processor.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/test/shock_test.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/start.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/test/vibration_test.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/; ================================================",
 		"/Users/Kumar/Documents/Projects/celery_tornado/push_task.py",
 		"/Users/Kumar/Google Drive/Research_Real Time Package Tracking and Monitoring/Servers/test_server.pem",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/tasks.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/celeryconfig.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/consolidated_report.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/celery.conf",
 		"/Users/Kumar/Documents/Projects/celery_tornado/untitled.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration_data_processor.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/vibration.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/shock/shock",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/test/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/common/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/vibration/probability_report.py",
@@ -710,7 +695,6 @@
 		"/Users/Kumar/Documents/Projects/celery_tornado/tornado-celery/examples/tasks.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/tornado-celery/examples/tornado_ioloop.py",
 		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/__init__.py",
-		"/Users/Kumar/Documents/Projects/celery_tornado/paktrack/logging.conf",
 		"/Users/Kumar/Documents/Projects/celery_mongo/paktrack/__init__.py",
 		"/Users/Kumar/Documents/Projects/celery_mongo/paktrack/settings.py",
 		"/Users/Kumar/Documents/Projects/celery_mongo/paktrack/tasks.py",
@@ -844,6 +828,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"process_psd",
+			"get_psd",
+			"get_vector_data",
+			"get_normalized_rms",
+			"get_psd",
 			"ConsolidatedReport",
 			"get_cursor",
 			" \"",
@@ -966,12 +955,7 @@
 			"_parse",
 			"_encodeUTF16",
 			"\\|",
-			"|",
-			"getProgramsList",
-			"Dash",
-			"Dashboard",
-			"Dashboarcon",
-			"ProgramsController"
+			"|"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1030,24 +1014,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "utility/update.py",
+					"file": "start.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2167,
+						"buffer_size": 3500,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3020,
+								3020
 							]
 						],
 						"settings":
@@ -1057,27 +1041,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 292.0,
+						"translation.y": 1057.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "test/vibration_test.py",
+					"file": "paktrack/vibration/consolidated_report.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1147,
+						"buffer_size": 2873,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								880,
-								904
+								2512,
+								2512
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "paktrack/celeryconfig.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1022,
+								1022
 							]
 						],
 						"settings":
@@ -1088,95 +1102,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "paktrack/vibration/consolidated_report.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2062,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "paktrack/vibration/vibration_data_processor.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1780,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								799,
-								799
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "paktrack/common/base_model.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2369,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2274,
-								2274
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1234,6 +1160,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"cons",
+				"paktrack/vibration/consolidated_report.py"
+			],
 			[
 				"vi",
 				"test/vibration_test.py"

@@ -32,7 +32,8 @@ class ConsolidatedReport():
             self.logger.info("Done consolidating psd's")
             return vibration_table
 
-    def generate_report(self, truck_id, package_id, events):
+    def generate_report(
+        self, truck_id, package_id, events, is_custom_report=False):
         if(len(events) > 0):
             table = {}
             table['no_of_events'] = len(events)
@@ -49,6 +50,8 @@ class ConsolidatedReport():
             table['vector'] = self.consolidate_psd(
                 self.process_psd(events, 'vector'))
             table['vector_grms'] = get_grms(table['vector'])
+
+            table['is_custom_report'] = is_custom_report
 
             self.vibration.update_consolidated_report(
                 truck_id, package_id, table)
@@ -84,4 +87,4 @@ class ConsolidatedReport():
 
         self.logger.info("Loaded %d events", len(events))
 
-        return self.generate_report(truck_id, package_id, events)
+        return self.generate_report(truck_id, package_id, events, True)

@@ -23,7 +23,7 @@ def test_vibration_object():
 def test_consolidated_report():
     vib = vibration.Vibration(HOST, PORT, DB)
     report = consolidated_report.ConsolidatedReport(vib)
-    result = report.process_data("NEW TEST1", "001")
+    result = report.process_data("123", "1234")
     if result is "success":
         print "Passed consolidated_report"
     else:
@@ -34,8 +34,9 @@ def test_consolidated_report():
 def test_custom_report():
     vib = vibration.Vibration(HOST, PORT, DB)
     report = consolidated_report.ConsolidatedReport(vib)
-    result = report.gen_custom_report("NEW TEST1", "001", ["5579cd1343e88deae72992e0",
-        "5579cd1343e88deae72992e1"])
+    result = report.gen_custom_report(
+        "NEW TEST1", "001",
+        ["5579cd1343e88deae72992e0", "5579cd1343e88deae72992e1"])
     if result is "success":
         print "Passed consolidated_report"
     else:
