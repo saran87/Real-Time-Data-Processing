@@ -10,7 +10,6 @@ class VibrationDataProcessor(object):
         self.logger = logging.getLogger(__name__)
 
     def pre_process_data(self, id):
-
         event = self.vibration.get_event(id)
         result = "no_event"
 
@@ -52,7 +51,6 @@ class VibrationDataProcessor(object):
         return False
 
     def __process_psd(self, event):
-
         event['psd_x'] = get_psd(event['x'])
         event['psd_y'] = get_psd(event['y'])
         event['psd_z'] = get_psd(event['z'])

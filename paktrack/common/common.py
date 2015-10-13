@@ -8,7 +8,9 @@ DX = 5
 
 
 def get_grms(data):
-    return simps(data[2:(len(data) / 2) - 1], dx=DX)
+    area = simps(data[2:(len(data) / 2) - 1], dx=DX)
+    # added as per prof.Changfeng Ge suggestion
+    return math.sqrt(area)
 
 
 def get_axis_data(event):
@@ -60,7 +62,8 @@ def string_to_list(value, splitter=' '):
 
 def get_vector_data(x, y, z):
     size = len(x)
-    return [math.sqrt((x[i]*x[i])+(y[i]*y[i])+(z[i]*z[i])) for i in xrange(0,size)]
+    return [math.sqrt((x[i] * x[i]) + (y[i] * y[i]) + (z[i] * z[i]))
+            for i in xrange(0, size)]
 
 
 def get_normalized_rms(event):
