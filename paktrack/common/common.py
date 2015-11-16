@@ -79,3 +79,19 @@ def normalized_singal(signal):
     theta = np.average(signal)
     signal = signal - theta
     return signal
+
+
+def get_average(signal):
+    signal = np.array(signal)
+    average = np.average(signal)
+    return average
+
+
+def get_average_for_event(event):
+    average = {}
+    average['x'] = get_average(event['x'])
+    average['y'] = get_average(event['y'])
+    average['z'] = get_average(event['z'])
+    average['vector'] = get_average(event['vector'])
+
+    return average

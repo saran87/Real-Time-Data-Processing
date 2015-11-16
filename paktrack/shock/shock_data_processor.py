@@ -1,7 +1,8 @@
 import logging
 import numpy as np
 import operator
-from paktrack.common.common import (get_normalized_rms)
+from paktrack.common.common import (get_normalized_rms,
+                                    get_average_for_event)
 
 PEEK_DETECTION_THRESHOLD = 3
 FACE_DETECTION_THRESHOLD = 1.5
@@ -22,6 +23,7 @@ class ShockDataProcessor(object):
 
         if event:
             event = self.__process_max_value(event)
+            event['average'] = get_average_for_event(event)
             event['drop_height'] = self.__get_drop_height(event)
             event['orientation'] = self.__get_drop_orientation(event)
             event['g_rms'] = get_normalized_rms(event)
