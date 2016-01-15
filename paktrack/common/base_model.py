@@ -6,10 +6,19 @@ from bson import ObjectId
 from pymongo import MongoClient
 
 
+def get_mongo_connection_string(db_user, db_pass, db_host, db_port, db):
+    conn_string = "mongodb://"
+    if db_user and db_pass:
+        conn_string = conn_string  + db_user + ":" + db_pass + "@"
+    conn_string = conn_string + db_host + ":" + str(db_port) + "/" + db
+    return conn_string
+
+
 class BaseModel(object):
     """A Baseclass for all database object"""
     def __init__(self, db_host, db_port, db, db_user, db_pass, collection_name):
-        self.db_client = MongoClient(db_host, db_port)
+        connection_string = get_mongo_connection_string(db_user, db_pass, db_host, db_port, db)
+        self.db_client = MongoClient(connection_string)
         self.db = self.db_client[db]
         self.collection = self.db[collection_name]
         # create logger
