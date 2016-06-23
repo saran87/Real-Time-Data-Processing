@@ -1,7 +1,7 @@
 import logging
 from paktrack.common.common import (
     get_psd, get_grms, get_max_with_index, get_normalized_rms,
-    get_average_for_event)
+    get_average_for_event, get_rms_for_event)
 
 
 class VibrationDataProcessor(object):
@@ -20,8 +20,9 @@ class VibrationDataProcessor(object):
                 result = self.vibration.delete(event)
             else:
                 event = self.__process_psd(event)
-                event['average'] = get_average_for_event(event)
-                event['g_rms'] = get_normalized_rms(event)
+                # event['average'] = get_average_for_event(event)
+                event['rms'] = get_rms_for_event(event)
+                # event['g_rms'] = get_normalized_rms(event)
                 event['is_processed'] = True
                 result = self.vibration.update(event)
 
@@ -36,14 +37,15 @@ class VibrationDataProcessor(object):
         return event
 
     def __is_not_proper_event(self, event):
+        ''' Remove vibration event equal to 4.0 G'''
         count = 0
-        if abs(event['max_x']['value']) >= 4.0:
+        if abs(event['max_x']['value']) == 4.0:
             count = count + 1
 
-        if abs(event['max_y']['value']) >= 4.0:
+        if abs(event['max_y']['value']) == 4.0:
             count = count + 1
 
-        if abs(event['max_z']['value']) >= 4.0:
+        if abs(event['max_z']['value']) == 4.0:
             count = count + 1
 
         if count > 1:
