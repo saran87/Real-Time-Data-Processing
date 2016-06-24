@@ -22,7 +22,6 @@ class VibrationDataProcessor(object):
                 event = self.__process_psd(event)
                 # event['average'] = get_average_for_event(event)
                 event['rms'] = get_rms_for_event(event)
-                # event['g_rms'] = get_normalized_rms(event)
                 event['is_processed'] = True
                 result = self.vibration.update(event)
 
@@ -65,3 +64,4 @@ class VibrationDataProcessor(object):
         event['vector_grms'] = get_grms(event['psd_vector'])
 
         return event
+    

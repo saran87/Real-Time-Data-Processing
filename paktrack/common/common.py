@@ -97,7 +97,7 @@ def get_average_for_event(event):
     return average
 
 def get_rms_for_event(event):
-    '''Calculate the RMS for a given event'''
+    '''Calculate the RMS for a given vibration event'''
     rms = {}
     rms['x'] = get_rms(event['x'])
     rms['y'] = get_rms(event['y'])
@@ -108,3 +108,6 @@ def get_rms(signal):
     '''Calculate the RMS for a given signal'''
     signal = np.array(signal)
     return sqrt(mean(square(a)))
+
+
+    

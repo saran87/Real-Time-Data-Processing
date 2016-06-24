@@ -26,7 +26,7 @@ class ShockDataProcessor(object):
             event['average'] = get_average_for_event(event)
             event['drop_height'] = self.__get_drop_height(event)
             event['orientation'] = self.__get_drop_orientation(event)
-            event['g_rms'] = get_normalized_rms(event)
+            event['g_rms'] = self.__get_grms(event) #get_normalized_rms(event)
             event['is_processed'] = True
             result = self.shock.update(event)
 
@@ -115,3 +115,14 @@ class ShockDataProcessor(object):
 
         elif axis is "max_z":
             return 1 if isNegative else 3
+
+
+    def __get_grms(self, event):
+        ''' Calculate the mean root square of the maximum values for each axis'''
+        x = event['max_x']['value']
+        y = event['max_y']['value']
+        z = event['max_z']['value']
+        # x = np.amax(event['x'])
+        # y = np.amax(event['y'])
+        # z = np.amax(event['z'])
+        return sqrt(mean([square(x), square(y), square(z)])
