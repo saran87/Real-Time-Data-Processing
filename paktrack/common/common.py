@@ -80,7 +80,7 @@ def normalized_singal(signal):
     signal = signal - theta
     return signal
 
-
+ 
 def get_average(signal):
     signal = np.array(signal)
     average = np.average(signal)
@@ -95,3 +95,19 @@ def get_average_for_event(event):
     average['vector'] = get_average(event['vector'])
 
     return average
+
+def get_rms_for_event(event):
+    '''Calculate the RMS for a given vibration event'''
+    rms = {}
+    rms['x'] = get_rms(event['x'])
+    rms['y'] = get_rms(event['y'])
+    rms['z'] = get_rms(event['z'])
+    return rms
+
+def get_rms(signal):
+    '''Calculate the RMS for a given signal'''
+    signal = np.array(signal)
+    return sqrt(mean(square(a)))
+
+
+    
