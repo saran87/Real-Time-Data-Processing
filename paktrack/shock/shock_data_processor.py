@@ -125,4 +125,4 @@ class ShockDataProcessor(object):
         # x = np.amax(event['x'])
         # y = np.amax(event['y'])
         # z = np.amax(event['z'])
-        return sqrt(mean([square(x), square(y), square(z)])
+        return np.sqrt(np.mean([np.square(x), np.square(y), np.square(z)])
