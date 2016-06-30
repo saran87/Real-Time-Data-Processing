@@ -119,10 +119,7 @@ class ShockDataProcessor(object):
 
     def __get_grms(self, event):
         ''' Calculate the mean root square of the maximum values for each axis'''
-        x = event['max_x']['value']
+        x = event['max_x']['value'] #np.amax(value)?
         y = event['max_y']['value']
         z = event['max_z']['value']
-        # x = np.amax(event['x'])
-        # y = np.amax(event['y'])
-        # z = np.amax(event['z'])
-        return np.sqrt(np.mean([np.square(x), np.square(y), np.square(z)])
+        return np.sqrt(np.mean([np.square(x), np.square(y), np.square(z)]))
