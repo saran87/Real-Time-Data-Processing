@@ -2,6 +2,7 @@ import logging
 from paktrack.common.common import (
     get_psd, get_grms, get_max_with_index, get_normalized_rms,
     get_average_for_event, get_rms_for_event)
+import numpy as np
 
 
 class VibrationDataProcessor(object):
@@ -21,7 +22,7 @@ class VibrationDataProcessor(object):
             else:
                 event = self.__process_psd(event)
                 # event['average'] = get_average_for_event(event)
-                event['rms'] = get_rms_for_event(event)
+                event['rms'] = self.__get_rms(event) #get_rms_for_event(event)
                 event['is_processed'] = True
                 result = self.vibration.update(event)
 
@@ -65,3 +66,15 @@ class VibrationDataProcessor(object):
 
         return event
     
+    def __get_rms(self, event):
+        '''Get the RMS per axis for a given vibration event'''
+        rms = {}
+        rms['x'] = self.__calculate_rms(event['x'])
+        rms['y'] = self.__calculate_rms(event['y'])
+        rms['z'] = self.__calculate_rms(event['z'])
+        return rms
+
+    def __calculate_rms(self, signal):
+        '''Calculate the RMS for a given signal'''
+        signal = np.array(signal)
+        return np.sqrt(np.mean(np.square(signal)))

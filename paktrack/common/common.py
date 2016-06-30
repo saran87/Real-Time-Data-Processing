@@ -107,7 +107,7 @@ def get_rms_for_event(event):
 def get_rms(signal):
     '''Calculate the RMS for a given signal'''
     signal = np.array(signal)
-    return sqrt(mean(square(a)))
+    return sqrt(mean(square(signal)))
 
 
     
