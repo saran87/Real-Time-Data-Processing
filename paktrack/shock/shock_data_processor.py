@@ -1,8 +1,8 @@
 import logging
-import numpy as np
 import operator
-from paktrack.common.common import (get_normalized_rms,
-                                    get_average_for_event)
+from numpy import mean, sqrt, square
+
+from paktrack.common.common import (get_average_for_event)
 
 PEEK_DETECTION_THRESHOLD = 3
 FACE_DETECTION_THRESHOLD = 1.5
@@ -12,6 +12,7 @@ AXIS_MAPPING = {0: "x", 1: "y", 2: "z"}
 
 class ShockDataProcessor(object):
     """docstring for ShockDataProcessor"""
+
     def __init__(self, shock):
         self.shock = shock
         self.logger = logging.getLogger(__name__)
@@ -26,7 +27,7 @@ class ShockDataProcessor(object):
             event['average'] = get_average_for_event(event)
             event['drop_height'] = self.__get_drop_height(event)
             event['orientation'] = self.__get_drop_orientation(event)
-            event['g_rms'] = self.__get_grms(event) #get_normalized_rms(event)
+            event['g_rms'] = self.__get_grms(event)  # get_normalized_rms(event)
             event['is_processed'] = True
             result = self.shock.update(event)
 
@@ -57,7 +58,7 @@ class ShockDataProcessor(object):
                 if (abs(chunk[max_index]) - abs(max_value)) > PEEK_DETECTION_THRESHOLD:
                     max_value = chunk[max_index]
                     chunk_index = chunk_count
-            chunk_count = chunk_count + 1
+            chunk_count += 1
 
         return chunk_index
 
@@ -79,50 +80,60 @@ class ShockDataProcessor(object):
         return signal
 
     def __get_drop_height(self, event):
-        # add 1 for getting correct milliseconds, since array index starts
-        # with 0
+        """
+
+        :param event:
+        :return:
+        """
+        """add 1 for getting correct milliseconds, since array index starts"""
         max_index = event['max_vector']['index'] + 1
         t = (max_index * 0.000625) + (70.0 / 1000.0)
         height = 4.9 * (t ** 2)
         return height
 
-    def __get_drop_orientation(self, event):
-        max_axis_values = {'max_x':abs(event['max_x']['value']),'max_y': abs(event['max_y']['value']),'max_z': abs(event['max_z']['value'])}
-        max_axis_values = sorted(max_axis_values.items(), key=operator.itemgetter(1), reverse=True)
-        faces = []
 
-        key, value = max_axis_values[0]
-        faces.append(self.__get_face(key,event[key]['value']))
-        max_value = value
-        del max_axis_values[0]
+def __get_drop_orientation(self, event):
+    max_axis_values = {'max_x': abs(event['max_x']['value']), 'max_y': abs(event['max_y']['value']),
+                       'max_z': abs(event['max_z']['value'])}
+    max_axis_values = sorted(max_axis_values.items(), key=operator.itemgetter(1), reverse=True)
+    faces = []
 
-        for key, value in max_axis_values:
-            ratio = max(max_value, value) / min(max_value, value) if min(max_value, value) > 0.0 else max(max_value, value)
-            if abs(ratio) <= FACE_DETECTION_THRESHOLD:
-                faces.append(self.__get_face(key,event[key]['value']))
+    key, value = max_axis_values[0]
+    faces.append(self.__get_face(key, event[key]['value']))
+    max_value = value
+    del max_axis_values[0]
 
-        return faces
+    for key, value in max_axis_values:
+        ratio = max(max_value, value) / min(max_value, value) if min(max_value, value) > 0.0 else max(max_value, value)
+        if abs(ratio) <= FACE_DETECTION_THRESHOLD:
+            faces.append(self.__get_face(key, event[key]['value']))
 
-    def __get_face(self, axis, value):
-
-        isNegative = False if value >= 0 else True
-
-        if axis is "max_y":
-            return 6 if isNegative else 5
-
-        elif axis is "max_x":
-            return 4 if isNegative else 2
-
-        elif axis is "max_z":
-            return 1 if isNegative else 3
+    return faces
 
 
-    def __get_grms(self, event):
-        ''' Calculate the mean root square of the maximum values for each axis'''
-        x = event['max_x']['value']
-        y = event['max_y']['value']
-        z = event['max_z']['value']
-        # x = np.amax(event['x'])
-        # y = np.amax(event['y'])
-        # z = np.amax(event['z'])
-        return sqrt(mean([square(x), square(y), square(z)])
+def __get_face(self, axis, value):
+    is_negative = False if value >= 0 else True
+
+    if axis is "max_y":
+        return 6 if is_negative else 5
+
+    elif axis is "max_x":
+        return 4 if is_negative else 2
+
+    elif axis is "max_z":
+        return 1 if is_negative else 3
+
+
+def __get_grms(self, event):
+    """ Calculate the mean root square of the maximum values for each axis
+
+    :param event:
+    :return:
+    """
+    x = event['max_x']['value']
+    y = event['max_y']['value']
+    z = event['max_z']['value']
+    return sqrt(mean([square(x), square(y), square(z)]))
+    # x = np.amax(event['x'])
+    # y = np.amax(event['y'])
+    # z = np.amax(event['z'])
