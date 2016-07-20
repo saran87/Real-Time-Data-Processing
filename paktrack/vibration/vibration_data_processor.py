@@ -37,15 +37,16 @@ class VibrationDataProcessor(object):
         return event
 
     def __is_not_proper_event(self, event):
-        ''' Remove vibration event equal to 4.0 G'''
+        ''' Remove vibration event greater than or equal to 4.0 G, also vibration event equal to 3.9687.
+         Prof. Changfeng => 3.9687 appear to be shock data)'''
         count = 0
-        if abs(event['max_x']['value']) == 4.0:
+        if (abs(event['max_x']['value']) >= 4.0 or abs(event['max_x']['value']) == 3.9687) :
             count = count + 1
 
-        if abs(event['max_y']['value']) == 4.0:
+        if (abs(event['max_y']['value']) >= 4.0 or abs(event['max_y']['value']) == 3.9687):
             count = count + 1
 
-        if abs(event['max_z']['value']) == 4.0:
+        if (abs(event['max_z']['value']) >= 4.0 or abs(event['max_y']['value']) == 3.9687):
             count = count + 1
 
         if count > 1:
