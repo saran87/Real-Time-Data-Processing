@@ -3,6 +3,7 @@ from paktrack.common.common import (
     get_psd, get_grms, get_max_with_index, get_normalized_rms,
     get_average_for_event, get_rms_for_event)
 import numpy as np
+from scipy.stats import kurtosis
 
 
 class VibrationDataProcessor(object):
@@ -24,6 +25,7 @@ class VibrationDataProcessor(object):
                 # event['average'] = get_average_for_event(event)
                 event['rms'] = self.__get_rms(event) #get_rms_for_event(event)
                 event['is_processed'] = True
+                event['kurtosis'] = self.__get_kurtosis(event)
                 result = self.vibration.update(event)
 
         return result
@@ -79,3 +81,11 @@ class VibrationDataProcessor(object):
         '''Calculate the RMS for a given signal'''
         signal = np.array(signal)
         return np.sqrt(np.mean(np.square(signal)))
+
+    def __get_kurtosis(self, event):
+        '''Get the kurtosis for each axis'''
+        kt = {}
+        kt['x'] = kurtosis(event['x'], fisher=False)
+        kt['y'] = kurtosis(event['y'], fisher=False)
+        kt['z'] = kurtosis(event['z'], fisher=False)
+        return kt
