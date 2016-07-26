@@ -3,6 +3,7 @@ import operator
 from numpy import mean, sqrt, square
 
 from paktrack.common.common import (get_average_for_event)
+from paktrack.shock.shock_response_spectrum import srs, np
 
 PEEK_DETECTION_THRESHOLD = 3
 FACE_DETECTION_THRESHOLD = 1.5
@@ -28,6 +29,7 @@ class ShockDataProcessor(object):
             event['drop_height'] = self.__get_drop_height(event)
             event['orientation'] = self.__get_drop_orientation(event)
             event['g_rms'] = self.__get_grms(event)  # get_normalized_rms(event)
+            event['srs'] = self.get_srs(event)
             event['is_processed'] = True
             result = self.shock.update(event)
 
@@ -91,49 +93,54 @@ class ShockDataProcessor(object):
         height = 4.9 * (t ** 2)
         return height
 
+    def __get_drop_orientation(self, event):
+        max_axis_values = {'max_x': abs(event['max_x']['value']), 'max_y': abs(event['max_y']['value']),
+                           'max_z': abs(event['max_z']['value'])}
+        max_axis_values = sorted(max_axis_values.items(), key=operator.itemgetter(1), reverse=True)
+        faces = []
 
-def __get_drop_orientation(self, event):
-    max_axis_values = {'max_x': abs(event['max_x']['value']), 'max_y': abs(event['max_y']['value']),
-                       'max_z': abs(event['max_z']['value'])}
-    max_axis_values = sorted(max_axis_values.items(), key=operator.itemgetter(1), reverse=True)
-    faces = []
+        key, value = max_axis_values[0]
+        faces.append(self.__get_face(key, event[key]['value']))
+        max_value = value
+        del max_axis_values[0]
 
-    key, value = max_axis_values[0]
-    faces.append(self.__get_face(key, event[key]['value']))
-    max_value = value
-    del max_axis_values[0]
+        for key, value in max_axis_values:
+            ratio = max(max_value, value) / min(max_value, value) if min(max_value, value) > 0.0 else max(max_value,
+                                                                                                          value)
+            if abs(ratio) <= FACE_DETECTION_THRESHOLD:
+                faces.append(self.__get_face(key, event[key]['value']))
 
-    for key, value in max_axis_values:
-        ratio = max(max_value, value) / min(max_value, value) if min(max_value, value) > 0.0 else max(max_value, value)
-        if abs(ratio) <= FACE_DETECTION_THRESHOLD:
-            faces.append(self.__get_face(key, event[key]['value']))
+        return faces
 
-    return faces
+    def __get_face(self, axis, value):
+        is_negative = False if value >= 0 else True
 
+        if axis is "max_y":
+            return 6 if is_negative else 5
 
-def __get_face(self, axis, value):
-    is_negative = False if value >= 0 else True
+        elif axis is "max_x":
+            return 4 if is_negative else 2
 
-    if axis is "max_y":
-        return 6 if is_negative else 5
+        elif axis is "max_z":
+            return 1 if is_negative else 3
 
-    elif axis is "max_x":
-        return 4 if is_negative else 2
+    def __get_grms(self, event):
+        """ Calculate the mean root square of the maximum values for each axis
 
-    elif axis is "max_z":
-        return 1 if is_negative else 3
+        :param event:
+        :return:
+        """
+        x = event['max_x']['value']
+        y = event['max_y']['value']
+        z = event['max_z']['value']
+        return sqrt(mean([square(x), square(y), square(z)]))
+        # x = np.amax(event['x'])
+        # y = np.amax(event['y'])
+        # z = np.amax(event['z'])
 
+    def get_srs(self, event):
 
-def __get_grms(self, event):
-    """ Calculate the mean root square of the maximum values for each axis
-
-    :param event:
-    :return:
-    """
-    x = event['max_x']['value']
-    y = event['max_y']['value']
-    z = event['max_z']['value']
-    return sqrt(mean([square(x), square(y), square(z)]))
-    # x = np.amax(event['x'])
-    # y = np.amax(event['y'])
-    # z = np.amax(event['z'])
+        return {'x': srs(event['x']),
+                'y': srs(event['y']),
+                'z': srs(event['z']),
+                'vector': srs(event['vector'])}
