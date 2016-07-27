@@ -26,6 +26,7 @@ class VibrationDataProcessor(object):
                 event['rms'] = self.__get_rms(event) #get_rms_for_event(event)
                 event['is_processed'] = True
                 event['kurtosis'] = self.__get_kurtosis(event)
+                event['max_psd'] = self.__get_max_psd(event)
                 result = self.vibration.update(event)
 
         return result
@@ -89,3 +90,11 @@ class VibrationDataProcessor(object):
         kt['y'] = kurtosis(event['y'], fisher=False)
         kt['z'] = kurtosis(event['z'], fisher=False)
         return kt
+
+    def __get_max_psd(self, event):
+        '''Get the maximum PSD value for each axis'''
+        max_psd = {}
+        max_psd['x'] = np.amax(event['psd_x'])
+        max_psd['y'] = np.amax(event['psd_y'])
+        max_psd['z'] = np.amax(event['psd_z'])
+        return max_psd

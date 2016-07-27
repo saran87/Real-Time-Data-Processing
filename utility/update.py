@@ -1,7 +1,9 @@
 import argparse
 import sys
 from os import path
+
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 from paktrack.vibration import vibration, vibration_data_processor
 from paktrack.shock import shock, shock_data_processor
 
@@ -22,6 +24,7 @@ def parse_arguments():
         help='which service[vibration (or) shock] you want to process')
     return parser.parse_args()
 
+
 def main(args):
     if args.service == "vibration":
         process_vibration(args)
@@ -30,33 +33,35 @@ def main(args):
     else:
         print "Invalid service"
 
+
 def process_vibration(args):
-    vib = vibration.Vibration(args.db_host,args.db_port, args.db_name, args.db_user, args.db_pass)
-    query = {"is_processed":{"$exists":False}}
-    fields = {"_id":1}
-    cursor = vib.get_cursor(query,fields)
+    vib = vibration.Vibration(args.db_host, args.db_port, args.db_name, args.db_user, args.db_pass)
+    query = {"is_processed": {"$exists": False}}
+    fields = {"_id": 1}
+    cursor = vib.get_cursor(query, fields)
     data_processor = vibration_data_processor.VibrationDataProcessor(vib)
     count = 0
 
     for doc in cursor:
-         result = data_processor.pre_process_data(doc['_id'])
-         print result
-         count = count + 1
+        result = data_processor.pre_process_data(doc['_id'])
+        print result
+        count += 1
 
     print "Processed %d vibration events", count
 
+
 def process_shock(args):
-    shock_model = shock.Shock(args.db_host,args.db_port, args.db_name, args.db_user, args.db_pass)
-    query = {"is_processed":{"$exists":False}}
-    fields = {"_id":1}
-    cursor = shock_model.get_cursor(query,fields)
+    shock_model = shock.Shock(args.db_host, args.db_port, args.db_name, args.db_user, args.db_pass)
+    query = {"is_processed": {"$exists": False}}
+    fields = {"_id": 1}
+    cursor = shock_model.get_cursor(query, fields)
     data_processor = shock_data_processor.ShockDataProcessor(shock_model)
     count = 0
 
     for doc in cursor:
          result = data_processor.pre_process_data(doc['_id'])
          print result
-         count = count + 1
+         count += 1
 
     print "Processed %d shock events", count
 

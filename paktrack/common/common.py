@@ -14,10 +14,13 @@ def get_grms(data):
 
 
 def get_axis_data(event):
-    ''' dont change the below code without proper impact analysis
-        this code handles the old data format and new data format of
-        vibration and shock data
-    '''
+    """don't change the below code without proper impact analysis
+    this code handles the old data format and new data format of
+    vibration and shock data
+
+    :param event:
+    :return:
+    """
 
     if event:
         if 'value' in event:  # To handle old data format
@@ -88,26 +91,24 @@ def get_average(signal):
 
 
 def get_average_for_event(event):
-    average = {}
-    average['x'] = get_average(event['x'])
-    average['y'] = get_average(event['y'])
-    average['z'] = get_average(event['z'])
-    average['vector'] = get_average(event['vector'])
+    average = {'x': get_average(event['x']), 'y': get_average(event['y']), 'z': get_average(event['z']),
+               'vector': get_average(event['vector'])}
 
     return average
 
+
 def get_rms_for_event(event):
-    '''Calculate the RMS for a given vibration event'''
-    rms = {}
-    rms['x'] = get_rms(event['x'])
-    rms['y'] = get_rms(event['y'])
-    rms['z'] = get_rms(event['z'])
+    """
+    Calculate the RMS for a given vibration event'
+    :param event:
+    :return:
+    """
+    rms = {'x': get_rms(event['x']), 'y': get_rms(event['y']), 'z': get_rms(event['z'])}
     return rms
 
+
 def get_rms(signal):
-    '''Calculate the RMS for a given signal'''
+    """Calculate the RMS for a given signal"""
     signal = np.array(signal)
     return sqrt(mean(square(signal)))
 
-
-    
