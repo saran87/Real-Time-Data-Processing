@@ -14,7 +14,11 @@ def srs(signal, amplification_factor=10, algorithm=1):
         1=Kelly-Richman  2=Smallwood
     """
     iunit = 1
-    t = [float((1 / 800.0) * i) for i in xrange(1, 1025)]  # TIME VECTOR
+
+    sampling_frecuency = 1600
+    sampling_period = 1/sampling_frecuency
+
+    t = [float(sampling_period * i) for i in xrange(1, 1025)]  # TIME VECTOR
     y = signal  # ACCELERATION VECTOR
 
     tmx = max(t)
