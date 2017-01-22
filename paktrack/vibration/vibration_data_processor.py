@@ -2,6 +2,8 @@ import logging
 from paktrack.common.common import (
     get_psd, get_grms, get_max_with_index, get_normalized_rms,
     get_average_for_event, get_rms_for_event)
+import numpy as np
+from scipy.stats import kurtosis
 
 
 class VibrationDataProcessor(object):
@@ -21,8 +23,10 @@ class VibrationDataProcessor(object):
             else:
                 event = self.__process_psd(event)
                 # event['average'] = get_average_for_event(event)
-                event['rms'] = get_rms_for_event(event)
+                event['rms'] = self.__get_rms(event) #get_rms_for_event(event)
                 event['is_processed'] = True
+                event['kurtosis'] = self.__get_kurtosis(event)
+                event['max_psd'] = self.__get_max_psd(event)
                 result = self.vibration.update(event)
 
         return result
@@ -36,15 +40,16 @@ class VibrationDataProcessor(object):
         return event
 
     def __is_not_proper_event(self, event):
-        ''' Remove vibration event equal to 4.0 G'''
+        ''' Remove vibration event greater than or equal to 4.0 G, also vibration event equal to 3.9687.
+         Prof. Changfeng => 3.9687 appear to be shock data)'''
         count = 0
-        if abs(event['max_x']['value']) == 4.0:
+        if (abs(event['max_x']['value']) >= 4.0 or abs(event['max_x']['value']) == 3.9687) :
             count = count + 1
 
-        if abs(event['max_y']['value']) == 4.0:
+        if (abs(event['max_y']['value']) >= 4.0 or abs(event['max_y']['value']) == 3.9687):
             count = count + 1
 
-        if abs(event['max_z']['value']) == 4.0:
+        if (abs(event['max_z']['value']) >= 4.0 or abs(event['max_y']['value']) == 3.9687):
             count = count + 1
 
         if count > 1:
@@ -65,3 +70,31 @@ class VibrationDataProcessor(object):
 
         return event
     
+    def __get_rms(self, event):
+        '''Get the RMS per axis for a given vibration event'''
+        rms = {}
+        rms['x'] = self.__calculate_rms(event['x'])
+        rms['y'] = self.__calculate_rms(event['y'])
+        rms['z'] = self.__calculate_rms(event['z'])
+        return rms
+
+    def __calculate_rms(self, signal):
+        '''Calculate the RMS for a given signal'''
+        signal = np.array(signal)
+        return np.sqrt(np.mean(np.square(signal)))
+
+    def __get_kurtosis(self, event):
+        '''Get the kurtosis for each axis'''
+        kt = {}
+        kt['x'] = kurtosis(event['x'], fisher=False)
+        kt['y'] = kurtosis(event['y'], fisher=False)
+        kt['z'] = kurtosis(event['z'], fisher=False)
+        return kt
+
+    def __get_max_psd(self, event):
+        '''Get the maximum PSD value for each axis'''
+        max_psd = {}
+        max_psd['x'] = np.amax(event['psd_x'])
+        max_psd['y'] = np.amax(event['psd_y'])
+        max_psd['z'] = np.amax(event['psd_z'])
+        return max_psd

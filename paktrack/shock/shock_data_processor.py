@@ -126,17 +126,13 @@ class ShockDataProcessor(object):
 
     def __get_grms(self, event):
         """ Calculate the mean root square of the maximum values for each axis
-
         :param event:
-        :return:
+        :return: grms
         """
         x = event['max_x']['value']
         y = event['max_y']['value']
         z = event['max_z']['value']
         return sqrt(mean([square(x), square(y), square(z)]))
-        # x = np.amax(event['x'])
-        # y = np.amax(event['y'])
-        # z = np.amax(event['z'])
 
     def get_srs(self, event):
 

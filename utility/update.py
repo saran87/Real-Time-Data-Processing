@@ -52,7 +52,7 @@ def process_vibration(args):
 
 def process_shock(args):
     shock_model = shock.Shock(args.db_host, args.db_port, args.db_name, args.db_user, args.db_pass)
-    query = {"is_processed": {"$exists": True}}
+    query = {"is_processed": {"$exists": False}}
     fields = {"_id": 1}
     cursor = shock_model.get_cursor(query, fields)
     data_processor = shock_data_processor.ShockDataProcessor(shock_model)

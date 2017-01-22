@@ -46,11 +46,13 @@ def get_axis_data(event):
 
 def get_psd(signal):
     size = len(signal)
+    size = size
     signal = np.array(signal, dtype=float)
     fourier = np.fft.fft(signal * np.hanning(size))
     psd = (fourier.real ** 2) / (FREQUENCY * size)
     psd = np.array(psd, dtype=float)
     psd[2:size - 1] = 2 * psd[2:size - 1]
+    psd = psd * 2 #According to professor 
     return psd.tolist()
 
 

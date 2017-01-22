@@ -30,14 +30,14 @@ class BaseModel(object):
         self.logger.info("Started loading events from mongodb cursor")
 
         events = []
-        query = {"truck_id": truck_id, "package_id": package_id, "is_above_threshold": is_above_threshold,"x": {"$exists": True},"y": {"$exists":True}, "z": {"$exists": True}}
+        query = {"truck_id": truck_id, "package_id": package_id, "is_above_threshold": is_above_threshold, "is_processed": {"$exists":True}, "x": {"$exists": True}, "y": {"$exists":True}, "z": {"$exists": True}}
         cursor = self.get_cursor(query)
 
         for line in cursor:
             events.append(get_axis_data(line))
 
-        if cursor:
-            query = {"truck_id":truck_id,"package_id":package_id,"is_above_threshold": is_above_threshold,"value.x":{"$exists":True},"value.y":{"$exists":True},"value.z":{"$exists":True}}
+        if not cursor:
+            query = {"truck_id":truck_id,"package_id":package_id, "is_above_threshold": is_above_threshold, "is_processed": {"$exists":True}, "value.x":{"$exists":True}, "value.y": {"$exists":True}, "value.z": {"$exists":True}}
             cursor = self.get_cursor(query)
 
         for line in cursor:
