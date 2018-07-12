@@ -1,0 +1,6 @@
+# For better pop workflow, got the idea from http://www.kennethreitz.org/essays/a-better-pip-workflow
+Flask==0.12
+Flask-Security==1.7.5
+Flask-SQLAlchemy==2.1
+celery==3.1.20
+
