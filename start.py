@@ -28,7 +28,7 @@ tcelery.setup_nonblocking_producer()
 
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=False, help="run in debug mode")
-define("db_host", default="test.pak-track.com", help="paktrack database host")
+define("db_host", default="127.0.0.1", help="paktrack database host")
 define("db_user", default="", help="paktrack database user name")
 define("db_pass", default="", help="paktrack database password")
 define("db_port", default=27017, help="paktrack database port", type=int)
