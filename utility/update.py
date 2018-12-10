@@ -12,7 +12,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(
         prog='Pak-Track Utility', usage='%(prog)s [options]',
         argument_default=argparse.SUPPRESS)
-    parser.add_argument('--db_host', help='database host', nargs='?')
+    parser.add_argument('--db_host', help='database host', nargs='?', default="127.0.0.1")
     parser.add_argument(
         '--db_port', help='database port', nargs='?',
         default=27017, type=int)
