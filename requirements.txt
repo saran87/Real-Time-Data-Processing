@@ -21,7 +21,7 @@ flower==0.8.2
 futures==2.2.0
 gyp==0.1
 html5lib==0.999
-httpie==0.9.2
+httpie==1.0.3
 itsdangerous==1.1.0
 Jinja2==2.10
 jsonpatch==1.3
