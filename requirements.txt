@@ -40,7 +40,7 @@ pymongo==3.0.1
 pyparsing==2.0.1
 python-dateutil==1.5
 pytz==2018.7
-PyYAML==3.10
+PyYAML==5.4
 requests==2.6.0
 scipy==0.13.3
 six==1.5.2
