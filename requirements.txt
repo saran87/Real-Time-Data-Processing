@@ -50,7 +50,7 @@ supervisor==3.0b2
 tornado==4.1
 tornado-celery==0.3.4
 unity-lens-photos==1.0
-urllib3==1.7.1
+urllib3==1.26.5
 virtualenv==16.1.0
 Werkzeug==0.14.1
 WTForms==2.2.1
