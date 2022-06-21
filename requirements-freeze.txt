@@ -28,7 +28,7 @@ kombu==3.0.37
 mailer==0.7
 MarkupSafe==1.1.0
 meld3==0.6.10
-numpy==1.8.2
+numpy==1.22.0
 oauth==1.0.1
 passlib==1.7.1
 pika==0.9.14
