@@ -44,7 +44,7 @@ scipy==0.13.3
 six==1.5.2
 SQLAlchemy==1.2.14
 ssh-import-id==3.21
-supervisor==3.0b2
+supervisor==3.0.1
 tornado==4.1
 tornado-celery==0.3.4
 urllib3==1.7.1
