@@ -48,5 +48,5 @@ supervisor==3.0b2
 tornado==4.1
 tornado-celery==0.3.4
 urllib3==1.7.1
-Werkzeug==0.14.1
+Werkzeug==0.15.5
 WTForms==2.2.1
