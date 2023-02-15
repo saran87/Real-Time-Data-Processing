@@ -52,5 +52,5 @@ tornado-celery==0.3.4
 unity-lens-photos==1.0
 urllib3==1.7.1
 virtualenv==16.1.0
-Werkzeug==0.14.1
+Werkzeug==2.2.3
 WTForms==2.2.1
